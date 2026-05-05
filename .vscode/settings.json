@@ -1,0 +1,14 @@
+{
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
+  "editor.suggestOnTriggerCharacters": false,
+  "editor.acceptSuggestionOnTab": false,
+  "editor.acceptSuggestionOnEnter": "off",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.inlineSuggest.enabled": false,
+  "editor.tabCompletion": "off",
+  "github.copilot.enable": false
+}
