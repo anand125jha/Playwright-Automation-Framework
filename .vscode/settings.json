@@ -10,5 +10,7 @@
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.inlineSuggest.enabled": false,
   "editor.tabCompletion": "off",
-  "github.copilot.enable": false
+  "github.copilot.enable": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }

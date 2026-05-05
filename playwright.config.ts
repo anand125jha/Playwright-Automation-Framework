@@ -12,18 +12,18 @@ export default defineConfig({
   use: {
     baseURL: "https://www.saucedemo.com/",
     headless: true,
-    viewport: { width: 1280, height: 720 },
+    viewport: null,
     actionTimeout: 10 * 1000,
     trace: "on-first-retry",
     screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    video: "retain-on-failure"
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-    },
-  ],
+      use: { ...devices["Desktop Chrome"] }
+    }
+  ]
 });
