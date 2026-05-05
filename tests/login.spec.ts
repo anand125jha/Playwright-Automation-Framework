@@ -12,7 +12,7 @@ test.describe("Verify login scenario", () => {
     await homePage.assertHomePage();
   });
 
-  test("Verify login with Invalid credentials", async ({ loginPage, homePage }) => {
+  test("Verify error msg when user login with invalid credentails", async ({ loginPage, homePage }) => {
     await loginPage.login(credentials.invalid.username, credentials.invalid.password);
     await homePage.assertErroMsg();
   });
