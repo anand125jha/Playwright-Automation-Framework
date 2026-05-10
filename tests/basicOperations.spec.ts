@@ -9,4 +9,15 @@ test.describe("Handle different weblement", () => {
     await automationPracticePage.selectRadio1();
     await automationPracticePage.assertRadio1Checked();
   });
+
+  test("Verify suggestion and press enter", async ({ automationPracticePage }) => {
+    await automationPracticePage.selectCountryFromSuggestion("India");
+  });
+
+  test("Verify dropdown value and select", async ({ automationPracticePage }) => {
+    await automationPracticePage.assertDropDownMenuAndSelect(
+      ["Select", "Option1", "Option2", "Option3"],
+      "Option3"
+    );
+  });
 });
