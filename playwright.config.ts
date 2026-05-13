@@ -22,8 +22,19 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] }
+      name: "setup",
+      testMatch: "**/auth.setup.ts"
+    },
+    {
+      name: "chromium_standard_user",
+      use: { ...devices["Desktop Chrome"], storageState: "playwright/.auth/standarduser.json" },
+      dependencies: ["setup"],
+      testMatch: "**/usersWorkFlow/*.spec.ts"
+    },
+    {
+      name: "general_tests", // npx palywright test --project=general_tests
+      use: { ...devices["Desktop Chrome"] },
+      testMatch: "**/*/switchWindow.spec.ts"
     }
   ]
 });

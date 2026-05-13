@@ -57,4 +57,15 @@ export class AutomationPracticePage extends BasePage {
     }
     await this.dropdown.selectOption(value);
   }
+
+  async openNewWindow() {
+    // to do multiple async task together
+    const [childPage, notUseFul] = await Promise.all([
+      // here we get two promise , using only 1st -> childPage. We can remove notUseFul
+      this.page.waitForEvent("popup"), // start listening for an new tab/window event. It returns a promise that will resolve when pop-up opens
+      this.openWindow.click()
+    ]);
+    await childPage.waitForLoadState();
+    return childPage;
+  }
 }
