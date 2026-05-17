@@ -9,6 +9,8 @@ export class AutomationPracticePage extends BasePage {
   private readonly dropdownMenu: Locator;
   private readonly dropdown: Locator;
   private readonly openWindow: Locator;
+  private readonly entername: Locator;
+  private readonly alert: Locator;
   constructor(page: Page) {
     super(page);
     this.radioLabels = page.locator("#radio-btn-example label");
@@ -18,6 +20,8 @@ export class AutomationPracticePage extends BasePage {
     this.dropdownMenu = page.locator("#dropdown-class-example option");
     this.dropdown = page.locator("#dropdown-class-example");
     this.openWindow = page.locator("#openwindow");
+    this.entername = page.locator("#name");
+    this.alert = page.locator("#alertbtn");
   }
   async goToPracticePage() {
     await this.page.goto("https://rahulshettyacademy.com/AutomationPractice/#");
@@ -67,5 +71,19 @@ export class AutomationPracticePage extends BasePage {
     ]);
     await childPage.waitForLoadState();
     return childPage;
+  }
+
+  async switchToParent() {
+    await this.page.bringToFront();
+    await expect(this.page).toHaveTitle("Practice Page");
+  }
+
+  async acceptAlert(name: string) {
+    await this.fill(this.entername, name);
+    this.page.once("dialog", async (dialog) => {
+      await dialog.accept();
+    });
+
+    await this.click(this.alert);
   }
 }

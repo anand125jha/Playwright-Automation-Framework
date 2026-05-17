@@ -20,6 +20,7 @@ export class BasePage {
   }
 
   protected async click(locator: Locator) {
+    await this.isVisible(locator);
     await locator.click();
   }
 
